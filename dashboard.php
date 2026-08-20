@@ -6,7 +6,7 @@ $lines = file_exists($file) ? file($file) : [];
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>لوحة تحكم زيتا 😈</title>
+    <title>panel of alpha 😈</title>
     <style>
         body { background: #111; color: #0f0; font-family: monospace; padding: 20px; }
         table { width: 100%; border-collapse: collapse; }
@@ -19,7 +19,7 @@ $lines = file_exists($file) ? file($file) : [];
 <body>
     <h1>👁️ لوحة تحكم ألفا</h1>
     <p>عدد الزيارات: <span class="count"><?= count($lines) ?></span></p>
-    <button class="refresh" onclick="location.reload()">🔄 تحديث</button>
+    <button class="refresh" onclick="location.reload()">🔄refresh </button>
     <hr>
     <table>
         <tr><th>#</th><th>الوقت</th><th>IP</th><th>المتصفح</th><th>النظام</th><th>اللغة</th><th>الشاشة</th></tr>
